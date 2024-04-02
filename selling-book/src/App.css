@@ -1,0 +1,61 @@
+body {
+    background-image: url(assets/images/LoginBackground.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+@font-face {
+    font-family: Vazirmatn-Medium;
+    src: url(assets/font/vazirmatn-v33.003/fonts/ttf/Vazirmatn-Medium.ttf);
+}
+
+@font-face {
+    font-family: Vazirmatn-Regular;
+    src: url(assets/font/vazirmatn-v33.003/fonts/ttf/Vazirmatn-Regular.ttf);
+}
+
+@font-face {
+    font-family: Vazirmatn-SemiBold;
+    src: url(assets/font/vazirmatn-v33.003/fonts/ttf/Vazirmatn-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: Vazirmatn-Light;
+    src: url(assets/font/vazirmatn-v33.003/fonts/ttf/Vazirmatn-Light.ttf);
+}
+
+@font-face {
+    font-family: Vazirmatn-Bold;
+    src: url(assets/font/vazirmatn-v33.003/fonts/ttf/Vazirmatn-Bold.ttf);
+}
+
+@font-face {
+    font-family: Vazirmatn-Black;
+    src: url(assets/font/vazirmatn-v33.003/fonts/ttf/Vazirmatn-Black.ttf);
+}
+
+.Vazirmatn-Medium {
+    font-family: Vazirmatn-Medium;
+}
+
+.Vazirmatn-Regular {
+    font-family: Vazirmatn-Regular;
+}
+
+.Vazirmatn-SemiBold {
+    font-family: Vazirmatn-SemiBold;
+}
+
+.Vazirmatn-Bold {
+    font-family: Vazirmatn-Light;
+}
+
+.Vazirmatn-Black {
+    font-family: Vazirmatn-Black;
+}
+
+.Vazirmatn-Light {
+    font-family: Vazirmatn-Light;
+}
