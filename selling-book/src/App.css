@@ -1,9 +1,10 @@
-body {
+.backgroundImage {
     background-image: url(assets/images/LoginBackground.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 100vh;
+    margin: 0 auto;
 }
 
 @font-face {
@@ -58,4 +59,8 @@ body {
 
 .Vazirmatn-Light {
     font-family: Vazirmatn-Light;
+}
+
+.searchInput::-webkit-search-cancel-button{
+    display: none;
 }
