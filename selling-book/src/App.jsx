@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Login from './pages/login/Login'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import Dashboard from './pages/dashboard admin/Dashboard'
 
 function App() {

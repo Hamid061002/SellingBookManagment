@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Menu from '../../components/menu/Menu'
 import Search from '../../components/search/Search'
 import CustomersTable from '../../components/cutomers table/CustomersTable'
+import { useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {
+   const navigate = useNavigate()
+   useEffect(() => {
+      let isLoggedIn = Boolean(localStorage.getItem('isLoggedIn'))
+      if (!isLoggedIn) {
+         navigate('/')
+      }
+   }, [])
    return (
       <section className="flex flex-col gap-10 p-5" dir="rtl">
          <div className="flex justify-between relative">

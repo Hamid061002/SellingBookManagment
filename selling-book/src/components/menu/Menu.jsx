@@ -1,7 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Menu = () => {
+    let navigate = useNavigate()
+    function logOut() {
+        localStorage.setItem("isLoggedIn" , false)
+        navigate('/')
+    }
     return (
         <label className="left-0 cursor-pointer">
             <input className="peer hidden" type="checkbox" />
@@ -18,7 +23,9 @@ const Menu = () => {
                 <li className="w-full text-center py-[7px] px-2 text-xs bg-COLOR_2 text-COLOR_4 drop-shadow Vazirmatn-Regular">پروفایل</li>
                 <li className="w-full text-center py-[7px] px-2 text-xs bg-COLOR_2 text-COLOR_4 drop-shadow Vazirmatn-Regular">گزارشات</li>
                 <li className="w-full text-center py-[7px] px-2 text-xs bg-COLOR_2 text-COLOR_4 drop-shadow Vazirmatn-Regular">اضافه کردن کتاب</li>
-                <Link href='' to={'/'} className="w-full text-center py-[7px] px-2 text-xs bg-COLOR_2 text-COLOR_4 drop-shadow Vazirmatn-Regular">خروج از حساب</Link>
+                <li
+                onClick={logOut}
+                className="w-full text-center py-[7px] px-2 text-xs bg-COLOR_2 text-COLOR_4 drop-shadow Vazirmatn-Regular">خروج از حساب</li>
             </ul>
         </label>
     )
