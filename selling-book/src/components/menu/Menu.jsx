@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Menu = () => {
     return (
@@ -13,11 +14,11 @@ const Menu = () => {
                 <line x1="2" y1="17.2028" x2="17.2028" y2="2.00002" stroke="#E57C23" stroke-width="2.5" stroke-linecap="round" />
                 <line x1="2.76777" y1="2" x2="17.9706" y2="17.2028" stroke="#E57C23" stroke-width="2.5" stroke-linecap="round" />
             </svg>
-            <ul className="invisible opacity-0 peer-checked:visible peer-checked:opacity-100 Transition flex flex-col gap-[2px] absolute top-7 left-0 bg-COLOR_3 rounded-[10px] border border-COLOR_3 overflow-hidden">
+            <ul className="invisible opacity-0 peer-checked:visible peer-checked:opacity-100 Transition flex flex-col gap-[2px] absolute top-7 z-10 left-0 bg-COLOR_3 rounded-[10px] border border-COLOR_3 overflow-hidden">
                 <li className="w-full text-center py-[7px] px-2 text-xs bg-COLOR_2 text-COLOR_4 drop-shadow Vazirmatn-Regular">پروفایل</li>
                 <li className="w-full text-center py-[7px] px-2 text-xs bg-COLOR_2 text-COLOR_4 drop-shadow Vazirmatn-Regular">گزارشات</li>
                 <li className="w-full text-center py-[7px] px-2 text-xs bg-COLOR_2 text-COLOR_4 drop-shadow Vazirmatn-Regular">اضافه کردن کتاب</li>
-                <li className="w-full text-center py-[7px] px-2 text-xs bg-COLOR_2 text-COLOR_4 drop-shadow Vazirmatn-Regular">خروج از حساب</li>
+                <Link href='' to={'/'} className="w-full text-center py-[7px] px-2 text-xs bg-COLOR_2 text-COLOR_4 drop-shadow Vazirmatn-Regular">خروج از حساب</Link>
             </ul>
         </label>
     )

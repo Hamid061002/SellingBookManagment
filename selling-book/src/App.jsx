@@ -8,10 +8,11 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="backgroundImage max-w-md">      
+    <div className="backgroundImage max-w-md">
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/Dashboard' element={<Dashboard />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
   )
