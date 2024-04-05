@@ -4,3 +4,6 @@ run project:
 - cd .\selling-book\
 - npm i
 - npm run dev
+
+username : hamidamini
+password : hamid1234
