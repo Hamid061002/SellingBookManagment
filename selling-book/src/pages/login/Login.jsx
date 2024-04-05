@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import SubmitButton from '../../components/submit/SubmitButton'
 import { useNavigate } from 'react-router-dom';
-import isLogggedIn from '../../isLogggedIn';
 
 function Login() {
   const navigate = useNavigate()
@@ -17,7 +16,6 @@ function Login() {
   function validation(Event) {
     if (username == userNamevalue && password == passwordValue) {
       Event.preventDefault()
-      isLogggedIn(true)
       localStorage.setItem("isLoggedIn",true)
       navigate('/Dashboard')
     } else {

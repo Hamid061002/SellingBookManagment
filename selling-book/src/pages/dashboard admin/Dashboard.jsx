@@ -6,9 +6,8 @@ import { useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {
    const navigate = useNavigate()
-   useEffect(() => {
-      let isLoggedIn = Boolean(localStorage.getItem('isLoggedIn'))
-      if (!isLoggedIn) {
+   useEffect(() => {      
+      if (!localStorage.getItem('isLoggedIn')) {
          navigate('/')
       }
    }, [])

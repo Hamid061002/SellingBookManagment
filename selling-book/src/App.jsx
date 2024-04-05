@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import './App.css'
 import Login from './pages/login/Login'
-import { Route, Routes, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom'
+
 import Dashboard from './pages/dashboard admin/Dashboard'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="backgroundImage max-w-md">
       <Routes>
