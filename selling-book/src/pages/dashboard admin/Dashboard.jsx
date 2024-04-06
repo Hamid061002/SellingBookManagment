@@ -7,8 +7,9 @@ import { useNavigate } from 'react-router-dom'
 const Dashboard = () => {
    const navigate = useNavigate()
    useEffect(() => {      
-      if (!localStorage.getItem('isLoggedIn')) {
+      if (!Boolean(localStorage.getItem('isLoggedIn'))) {
          navigate('/')
+         alert('ابتدا وارد حساب کاربری خود شوید')
       }
    }, [])
    return (
