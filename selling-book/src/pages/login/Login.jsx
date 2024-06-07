@@ -22,8 +22,25 @@ function Login({ data }) {
       password: ''
     },
     onSubmit: values => {
+      console.log(data);
       if (data.find(user => user.username == values.username && user.password == values.password)) {
-        navigate('/DashboardAdmin')
+        let user = data.find(user => user.username == values.username && user.password == values.password)
+        switch (user.post) {
+          case 'Admin':
+            navigate('/DashboardAdmin')
+            break;
+          case 'Seller':
+            navigate('/DashboardSeller')
+            break;
+          case 'Manager':
+            navigate('/DashboardManager')
+            break;
+          case 'StockClerk':
+            navigate('/DashboardStockCLerk')
+            break;
+          default:
+            break;
+        }
         localStorage.setItem("isLoggedIn", true)
         setIsCorrectForm(true)
       } else if (!data.find(user => user.username == values.username) && data.find(user => user.password == values.password)) {
@@ -48,7 +65,7 @@ function Login({ data }) {
   let [showPassword, setShowPassword] = useState(false)
   let showPasswordClass = 'size-6 transition-all duration-300 absolute right-3 bottom-8'
 
-  let [isCorrectForm,setIsCorrectForm] = useState(false)
+  let [isCorrectForm, setIsCorrectForm] = useState(false)
   let [isMistakeUserName, setIsMistakeUserName] = useState(false)
   let [isMistakePassword, setIsMistakePassword] = useState(false)
   let [isMistakeBoth, setIsMistakeBoth] = useState(false)
@@ -106,7 +123,7 @@ function Login({ data }) {
   //   }
   // }
   return (
-    <section className="flex flex-col gap-24 items-center pt-10" dir="rtl">
+    <section className="flex flex-col gap-16 items-center pt-10" dir="rtl">
       <div className="flex items-center flex-col gap-8 Vazirmatn-Medium">
         <h2 className="text-[30px] text-COLOR_1 drop-shadow-md">کتاب فروشی title</h2>
         <h1 className="flex flex-col text-[50px] text-center text-COLOR_4 drop-shadow-md leading-[55px]"><span>صفحه</span> <span>ورود</span></h1>

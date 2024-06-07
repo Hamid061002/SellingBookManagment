@@ -3,7 +3,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 800px;
     margin: 0 auto;
 }
 
@@ -63,4 +63,15 @@
 
 .searchInput::-webkit-search-cancel-button{
     display: none;
+}
+
+.scrollBarReports::-webkit-scrollbar{
+    background-color: #0254641b;
+    border-radius: 5px;
+    position: absolute; left: 30px;
+    width: 4px;
+}
+.scrollBarReports::-webkit-scrollbar-thumb{
+    background-color: #025464;
+    border-radius: 5px;
 }

@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import Menu from '../../components/menu/Menu'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const Profile = () => {
+const Profile = ({ data }) => {
+  const params = useParams()
+  const thisUser = data.find(user => user.post == params.post)
+
   const navigate = useNavigate()
 
   useEffect(() => {
     if (!Boolean(localStorage.getItem('isLoggedIn'))) {
-       navigate('/')
-       alert('ابتدا وارد حساب کاربری خود شوید')
+      navigate('/')
+      alert('ابتدا وارد حساب کاربری خود شوید')
     }
- }, [])
+  }, [])
 
   function logOut() {
     localStorage.clear();
@@ -26,8 +29,43 @@ const Profile = () => {
   return (
     <section className="flex flex-col gap-10 p-5 Vazirmatn-Medium" dir="rtl">
       <div className="flex justify-between relative">
-        <h2 className="text-xl text-COLOR_1 drop-shadow-md Vazirmatn-Medium">پروفایل ادمین</h2>
-        <Menu menuList={[{ title: "پروفایل", navigateLink: '' }, { title: "داشبورد", navigateLink: () => navigate('/DashboardAdmin') }, { title: "مدیریت کاربران", navigateLink: () => navigate('/Customers') }, { title: "خروج از حساب", navigateLink: logOut }]} />
+        <h2 className="text-xl text-COLOR_1 drop-shadow-md Vazirmatn-Medium">پروفایل {thisUser.title}</h2>
+        {
+          thisUser.post == 'Manager' ?
+            <Menu menuList={[
+              { title: "پروفایل", navigateLink: '' },
+              { title: "داشبورد", navigateLink: () => navigate('/DashboardManager') },
+              { title: "اضافه کردن کتاب", navigateLink: () => navigate('/AddBook') },
+              { title: "گزارشات", navigateLink: () => navigate('/Reports') },
+              { title: "خروج از حساب", navigateLink: logOut }
+            ]} /> : ''
+        }
+        {
+          thisUser.post == 'Admin' ?
+            <Menu menuList={[
+              { title: "پروفایل", navigateLink: '' },
+              { title: "داشبورد", navigateLink: () => navigate('/DashboardAdmin') },
+              { title: "خروج از حساب", navigateLink: logOut }
+            ]} /> : ''
+        }
+        {
+          thisUser.post == 'Seller' ?
+            <Menu menuList={[
+              { title: "پروفایل", navigateLink: () => '' },
+              { title: "داشبورد", navigateLink: () => navigate('/DashboardSeller') },
+              { title: 'ثبت گزارش', navigateLink: () => navigate('/RecordReport') },
+              { title: "سبد فروش", navigateLink: () => navigate('/ShoppingCart') },
+              { title: "خروج از حساب", navigateLink: logOut }
+            ]} /> : ''
+        }
+        {
+          thisUser.post == 'StockClerk' ?
+            <Menu menuList={[
+              { title: "پروفایل", navigateLink: () => '' },
+              { title: "داشبورد", navigateLink: () => navigate('/DashboardStockClerk') },
+              { title: "خروج از حساب", navigateLink: logOut }
+            ]} /> : ''
+        }
       </div>
       <div className='flex justify-center'>
         <form className="flex flex-col items-end gap-2" onSubmit={handleSubmit} >
@@ -56,11 +94,11 @@ const Profile = () => {
                 value={''} />
             </div>
             <div className="flex justify-between items-center">
-              <label htmlFor="">امینی</label>
+              <label htmlFor="">نام خانوادگی</label>
               <input
                 className="w-[157px] bg-COLOR_4 rounded-lg py-2 px-2 text-xs outline-none"
                 type="text"
-                placeholder='نام خانوادگی'
+                placeholder='امینی'
                 value={''} />
             </div>
             <div className="flex justify-between items-center">
@@ -81,12 +119,9 @@ const Profile = () => {
             </div>
             <div className="flex justify-between items-center">
               <label htmlFor="">سمت</label>
-              <select className="w-[157px] bg-COLOR_4 rounded-lg py-2 px-2 text-xs" name="" id="">
-                <option value="" >انبار دار</option>
-                <option value="" selected>ادمین</option>
-                <option value="">فروشنده</option>
-                <option value="">مدیر</option>
-              </select>
+              <div className="w-[157px] bg-COLOR_4 rounded-lg py-2 px-2 text-xs" name="" id="">
+                {thisUser.title}
+              </div>
             </div>
           </div>
           <button className="px-8 py-2 rounded-[20px] bg-COLOR_2 text-COLOR_3 drop-shadow-md">ثبت</button>
