@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 const RecordReport = () => {
   const navigate = useNavigate()
 
-
   function logOut() {
     localStorage.clear();
     navigate('/')
@@ -15,7 +14,7 @@ const RecordReport = () => {
       <div className="flex justify-between relative">
         <h2 className="text-xl text-COLOR_1 drop-shadow-md Vazirmatn-Medium">ثبت گزارش</h2>
         <Menu menuList={[
-          { title: "پروفایل", navigateLink: () => navigate('/Profile/Seller') },
+          { title: "پروفایل", navigateLink: () => navigate('/Profile/2') },
           { title: "داشبورد", navigateLink: () => navigate('/DashboardSeller') },
           { title: 'ثبت گزارش', navigateLink: () => '' },
           { title: "سبد فروش", navigateLink: () => navigate('/ShoppingCart') },

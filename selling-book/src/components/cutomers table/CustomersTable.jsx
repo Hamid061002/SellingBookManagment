@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const CustomersTable = () => {
+const CustomersTable = () => {  
   let [salesHistoryOrCustomers, setSalesHistoryCustomers] = useState(true)
   return (
     <div className="flex relative">
@@ -74,7 +74,7 @@ const CustomersTable = () => {
               <th className="px-1 py-1 text-[7px]">ID</th>
             </tr>
           </thead>
-          <tbody className="*:border-b *:border-COLOR_3">
+          <tbody className="*:border-b *:border-COLOR_3">            
             <tr className="text-COLOR_3 *:border-l *:border-COLOR_3">
               <th className=" py-1 text-[7px]">title</th>
               <th className=" py-1 text-[7px]">2</th>

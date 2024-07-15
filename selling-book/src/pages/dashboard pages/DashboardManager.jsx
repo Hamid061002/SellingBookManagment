@@ -22,7 +22,7 @@ const DashboardManager = () => {
       <div className="flex justify-between relative">
         <h2 className="text-xl text-COLOR_1 drop-shadow-md Vazirmatn-Medium">داشبورد مدیر</h2>
         <Menu menuList={[
-          { title: "پروفایل", navigateLink: () => navigate(`/Profile/Manager`) },
+          { title: "پروفایل", navigateLink: () => navigate(`/Profile/3`) },
           { title: "داشبورد", navigateLink: () => navigate('/DashboardManager') },
           { title: "اضافه کردن کتاب", navigateLink: () => navigate('/AddBook/Manager') },
           { title: "گزارشات", navigateLink: () => navigate('/Reports') },

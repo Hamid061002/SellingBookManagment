@@ -6,7 +6,7 @@ const Menu = ({ menuList }) => {
 
   return (
     <label className="left-0 cursor-pointer">
-      <input className="peer hidden" type="checkbox" />
+      <input maxLength="25" className="peer hidden" type="checkbox" />
       <svg className="peer-checked:invisible peer-checked:opacity-0 absolute left-0 Transition" width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
         <line x1="1.25" y1="9.75" x2="19.7738" y2="9.75" stroke="#E57C23" stroke-width="2.5" stroke-linecap="round" />
         <line x1="1.25" y1="17.75" x2="19.7738" y2="17.75" stroke="#E57C23" stroke-width="2.5" stroke-linecap="round" />

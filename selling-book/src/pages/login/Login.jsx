@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import SubmitButton from '../../components/submit/SubmitButton'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 
 function Login({ data }) {
+  const navigate = useNavigate()
+
   const basicSchema = yup.object().shape({
     username: yup.string()
       .min(8, 'نام کاربری حداقل باید شامل ۸ کاراکتر باشد!')
@@ -22,9 +24,9 @@ function Login({ data }) {
       password: ''
     },
     onSubmit: values => {
-      console.log(data);
       if (data.find(user => user.username == values.username && user.password == values.password)) {
         let user = data.find(user => user.username == values.username && user.password == values.password)
+        // console.log(user);
         switch (user.post) {
           case 'Admin':
             navigate('/DashboardAdmin')
@@ -60,8 +62,6 @@ function Login({ data }) {
     validationSchema: basicSchema
   })
 
-  const navigate = useNavigate()
-
   let [showPassword, setShowPassword] = useState(false)
   let showPasswordClass = 'size-6 transition-all duration-300 absolute right-3 bottom-8'
 
@@ -71,59 +71,8 @@ function Login({ data }) {
   let [isMistakeBoth, setIsMistakeBoth] = useState(false)
   let errorMistakeMessages = ['نام کاربری نادرست میباشد!', 'رمز عبور نادرست میباشد!', 'نام کاربری و رمز عبور نادرست میباشند!']
 
-  // let [userNamevalue, setUserNameValue] = useState('')
-  // let [passwordValue, setPasswordValue] = useState('')
-
-
-  // let [isErrorPassword, setIsErrorPassword] = useState(false)
-  // let [isErrorUserName, setIsErrorUserName] = useState(false)
-
-  // let errorMessages = ['رمز عبور نادرست است!', 'رمز عبور وارد نشده است!', 'رمز عبور باید بین ۸ تا ۲۰ کاراکتر داشته باشد!','رمز عبور باید شامل اعداد و حروف انگلیسی باشد!']
-  // let [errorPasswordValue, setErrorPasswordValue] = useState('')
-  // let [errorUserNameValue, setErrorUserNameValue] = useState('')
-
-  // let lengthValid = /^[\w\W]{8,20}$/
-  // let userNameValid = /^[a-zA-Z0-9]+$/
-  // let passwordValid = /^[a-zA-Z]+$/
-
-  // function userNameValidation() {
-  //   if (lengthValid.test(userNamevalue)) {
-
-  //   }
-  // }
-
-  // function passwordValidation() {
-  //   if (lengthValid.test(passwordValue) && passwordValid.test(passwordValid)) {
-  //     setIsErrorPassword(false)
-  //     setErrorPasswordValue('')
-  //   } else {
-  //     setIsErrorPassword(true)
-  //     !lengthValid.test(passwordValue) ? setErrorPasswordValue(errorMessages[2]) : '' 
-  //     !passwordValid.test(passwordValue) ? setErrorPasswordValue(errorMessages[3]) : ''
-  //     !passwordValue ? setErrorPasswordValue(errorMessages[1]) : '' 
-  //   }
-  // }
-
-  // function handleSubmit(Event) {
-  //   if (data.find(user => user.username == userNamevalue && user.password == passwordValue)) {
-  //     Event.preventDefault()
-  //     navigate('/Dashboard')
-  //     localStorage.setItem("isLoggedIn", true)
-  //   }
-  //   else if (!userNamevalue || !passwordValue) {
-  //     Event.preventDefault()
-  //     setIsErrorMistake(false)
-  //     setIsErrorEmpty(true)
-  //     setErrorPasswordValue(errorMessages[1])
-  //   } else {
-  //     Event.preventDefault()
-  //     setIsErrorMistake(true)
-  //     setIsErrorEmpty(false)
-  //     setErrorPasswordValue(errorMessages[0])
-  //   }
-  // }
   return (
-    <section className="flex flex-col gap-16 items-center pt-10" dir="rtl">
+    <section className="flex flex-col gap-16 items-center pt-5" dir="rtl">
       <div className="flex items-center flex-col gap-8 Vazirmatn-Medium">
         <h2 className="text-[30px] text-COLOR_1 drop-shadow-md">کتاب فروشی title</h2>
         <h1 className="flex flex-col text-[50px] text-center text-COLOR_4 drop-shadow-md leading-[55px]"><span>صفحه</span> <span>ورود</span></h1>
@@ -184,6 +133,7 @@ function Login({ data }) {
           {isMistakeBoth ? <div className='w-fit py-1 px-2 rounded-md text-[10px] bg-red-500 text-center text-COLOR_4 Vazirmatn-Regular'>{errorMistakeMessages[2]}</div> : ''}
           {isCorrectForm ? <div className='w-fit py-1 px-2 rounded-md text-[10px] bg-green-500 text-center text-COLOR_4 Vazirmatn-Regular'>موفقیت!!!</div> : ''}
         </div>
+        <Link to={'/SignUp'} className="Vazirmatn-Medium text-sm text-COLOR_4 text-center">ثبت نام نکرده اید؟</Link>
       </form>
     </section >
   )

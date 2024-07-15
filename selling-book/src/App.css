@@ -1,9 +1,18 @@
-.backgroundImage {
+body {
     background-image: url(assets/images/LoginBackground.svg);
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 800px;
+    height: 100vh;
+    /* margin: 0 auto; */
+}
+.backgroundImage {
+    /* background-image: url(assets/images/LoginBackground.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; */
+    /* height: 100vh; */
     margin: 0 auto;
 }
 

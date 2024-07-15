@@ -23,13 +23,13 @@ const Reports = () => {
       <div className="flex justify-between relative">
         <h2 className="text-xl text-COLOR_1 drop-shadow-md Vazirmatn-Medium">گزارشات</h2>
         <Menu menuList={[
-          { title: "پروفایل", navigateLink: () => navigate(`/Profile/Manager`) },
+          { title: "پروفایل", navigateLink: () => navigate(`/Profile/3`) },
           { title: "داشبورد", navigateLink: () => navigate('/DashboardManager') },
           { title: "اضافه کردن کتاب", navigateLink: () => navigate('/AddBook') },
           { title: "گزارشات", navigateLink: () => navigate('/Reports') },
           { title: "خروج از حساب", navigateLink: logOut }]} />
       </div>
-      <div className="flex flex-col gap-2 bg-COLOR_1 rounded-[20px] w-full h-[600px] py-4 px-8">
+      <div className="flex flex-col gap-2 bg-COLOR_1 rounded-[20px] w-full h-[500px] py-4 px-8">
         <button
           onClick={() => setShowReportSeller(!showReportSeller)}
           className="flex justify-between items-center bg-COLOR_7 rounded-[10px] text-COLOR_3 h-[38px] px-3 cursor-pointer">
@@ -68,7 +68,6 @@ const Reports = () => {
               </div>
             </div> 
         }
-
       </div>
     </section>
   )

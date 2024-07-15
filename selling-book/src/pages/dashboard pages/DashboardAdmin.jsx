@@ -22,7 +22,7 @@ const DashboardAdmin = () => {
          <div className="flex justify-between relative">
             <h2 className="text-xl text-COLOR_1 drop-shadow-md Vazirmatn-Medium">داشبورد ادمین</h2>
             <Menu menuList={[
-               { title: "پروفایل", navigateLink: () => navigate(`/Profile/Admin`) },
+               { title: "پروفایل", navigateLink: () => navigate(`/Profile/1`) },
                { title: "داشبورد", navigateLink: () => navigate('/DashboardAdmin') },
                { title: "خروج از حساب", navigateLink: logOut }
             ]} />

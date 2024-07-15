@@ -1,9 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 const BooksList = () => {
+  const navigate = useNavigate()
+
+  const [books, setBooks] = useState([])
+  
+  useEffect(() => {
+    fetch('https://66640b00932baf9032a9c41b.mockapi.io/books')
+      .then(res => res.json())
+      .then(booksData => setBooks([...booksData]))
+      .catch(error => alert(error))
+  }, [])
   return (
-    <div className="flex flex-col gap2 items-end w-full p-2 rounded-[20px] bg-COLOR_4 text-COLOR_3 h-[500px] shadow-md Vazirmatn-Medium">
+    <div className="flex flex-col gap2 items-end w-full p-2 pb-0 rounded-[20px] bg-COLOR_4 text-COLOR_3 max-h-[500px] shadow-md Vazirmatn-Medium">
       <Link to={'/AddBook/StockClerk'} className="font-bold p-1">اضافه کردن</Link>
       <table className="text-xs w-full">
         <tr className="*:border-COLOR_3 border-COLOR_3 text-center">
@@ -14,7 +24,20 @@ const BooksList = () => {
           <th className="p-2 border-b">کد کتاب</th>
           <th></th>
         </tr>
-        <tr className="*:border-COLOR_3 border-COLOR_3 text-center">
+        {
+          books.map(book => (
+            <tr
+              onClick={() => navigate(`/BookInfo/${book.id}`)}
+              className="*:border-COLOR_3 border-COLOR_3 text-center cursor-pointer">
+              <td className=" p-2 border-l border-b">{book.title}</td>
+              <td className=" p-2 border-l border-b">{book.count}</td>
+              <td className=" p-2 border-l border-b">{book.author}</td>
+              <td className=" p-2 border-l border-b">{book.genre}</td>
+              <td className=" p-2 border-b">{book.id}</td>
+            </tr>
+          ))
+        }
+        {/* <tr className="*:border-COLOR_3 border-COLOR_3 text-center">
           <td className="p-2 border-l border-b">عنوان</td>
           <td className="p-2 border-l border-b">3</td>
           <td className="p-2 border-l border-b">اسم فامیل</td>
@@ -70,7 +93,7 @@ const BooksList = () => {
               </svg>
             </button>
           </td>
-        </tr>
+        </tr> */}
       </table>
     </div>
   )

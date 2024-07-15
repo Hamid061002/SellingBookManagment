@@ -23,7 +23,7 @@ const DashboardStockCLerk = () => {
       <div className="flex justify-between relative">
         <h2 className="text-xl text-COLOR_1 drop-shadow-md">داشبورد انبار دار</h2>
         <Menu menuList={[
-          { title: "پروفایل", navigateLink: () => navigate(`/Profile/StockClerk`) },
+          { title: "پروفایل", navigateLink: () => navigate(`/Profile/4`) },
           { title: "داشبورد", navigateLink: () => navigate('/DashboardStockClerk') },
           { title: "اضافه کردن کتاب", navigateLink: () => navigate('/AddBook/StockClerk') },
           { title: "خروج از حساب", navigateLink: logOut }
